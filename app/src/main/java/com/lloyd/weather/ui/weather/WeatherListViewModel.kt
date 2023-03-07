@@ -1,5 +1,6 @@
 package com.lloyd.weather.ui.weather
 
+import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,8 +23,8 @@ class WeatherListViewModel @Inject
 constructor(private val dataRepositoryRepository: DataRepositorySource) : BaseViewModel() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val weatherLiveDataPrivate = MutableLiveData<Resource<WeatherList>>()
-    val weatherLiveData: LiveData<Resource<WeatherList>> get() = weatherLiveDataPrivate
+    val weatherLiveDataPrivate = MutableLiveData<Resource<LocationWeather>>()
+    val weatherLiveData: LiveData<Resource<LocationWeather>> get() = weatherLiveDataPrivate
 
 
     /**

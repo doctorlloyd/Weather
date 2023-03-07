@@ -14,15 +14,15 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 
-private const val timeoutRead = 30   //In seconds
+private const val timeoutRead = 300   //In seconds
 private const val contentType = "Content-Type"
 private const val contentTypeValue = "application/json"
-private const val timeoutConnect = 30   //In seconds
+private const val timeoutConnect = 300   //In seconds
 
 @Singleton
 class ServiceGenerator @Inject constructor() {
-    private val okHttpBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
-    private val retrofit: Retrofit
+    private var okHttpBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
+    private var retrofit: Retrofit
 
     private var headerInterceptor = Interceptor { chain ->
         val original = chain.request()

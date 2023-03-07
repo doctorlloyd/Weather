@@ -2,6 +2,7 @@ package com.lloyd.weather.ui.weather
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.activity.viewModels
@@ -43,14 +44,17 @@ class WeatherListActivity : BaseActivity() {
         weatherListViewModel.getWeather()
     }
 
-    private fun bindListData(weather: WeatherList) {
-        if (!(weather.weatherList.isNullOrEmpty())) {
-            weatherAdapter = WeatherAdapter(weatherListViewModel, weather.weatherList)
-            binding.rvWeatherList.adapter = weatherAdapter
-            showDataView(true)
-        } else {
-            showDataView(false)
-        }
+    private fun bindListData(weather: LocationWeather) {
+        /*
+        * Logging data received from location weather API
+        * */
+//        if ((weather.)) {
+//            weatherAdapter = WeatherAdapter(weatherListViewModel, weather)
+//            binding.rvWeatherList.adapter = weatherAdapter
+//            showDataView(true)
+//        } else {
+//            showDataView(false)
+//        }
     }
 
     private fun navigateToDetailsScreen(navigateEvent: SingleEvent<LocationWeather>) {
@@ -82,7 +86,7 @@ class WeatherListActivity : BaseActivity() {
         binding.rvWeatherList.toGone()
     }
 
-    private fun handleWeatherList(status: Resource<WeatherList>) {
+    private fun handleWeatherList(status: Resource<LocationWeather>) {
         when (status) {
             is Resource.Loading -> showLoadingView()
             is Resource.Success -> status.data?.let { bindListData(weather = it) }

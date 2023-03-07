@@ -7,7 +7,7 @@ import retrofit2.http.GET
 
 interface WeatherService {
     @GET("weather?q=Pretoria,Gauteng&appid=$API_KEY")
-    suspend fun fetchWeather(): Response<List<LocationWeather>>
+    suspend fun fetchWeather(): Response<LocationWeather>
 
     @GET("weather?q=Pretoria,Gauteng&appid=$API_KEY")
     suspend fun getWeather(): Response<LocationWeather>
