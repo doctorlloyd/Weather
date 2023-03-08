@@ -1,6 +1,5 @@
 package com.lloyd.weather.ui.weather
 
-import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.lloyd.weather.data.DataRepositorySource
 import com.lloyd.weather.data.Resource
 import com.lloyd.weather.data.models.LocationWeather
-import com.lloyd.weather.data.models.WeatherList
 import com.lloyd.weather.ui.base.BaseViewModel
 import com.lloyd.weather.utils.SingleEvent
 import com.lloyd.weather.utils.wrapEspressoIdlingResource

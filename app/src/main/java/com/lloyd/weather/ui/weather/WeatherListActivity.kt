@@ -2,7 +2,6 @@ package com.lloyd.weather.ui.weather
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.activity.viewModels
@@ -13,7 +12,6 @@ import com.lloyd.weather.R
 import com.lloyd.weather.WEATHER_ITEM_KEY
 import com.lloyd.weather.data.Resource
 import com.lloyd.weather.data.models.LocationWeather
-import com.lloyd.weather.data.models.WeatherList
 import com.lloyd.weather.databinding.HomeActivityBinding
 import com.lloyd.weather.ui.base.BaseActivity
 import com.lloyd.weather.ui.details.DetailsActivity

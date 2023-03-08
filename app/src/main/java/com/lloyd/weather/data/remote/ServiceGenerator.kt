@@ -3,7 +3,7 @@ package com.lloyd.weather.data.remote
 import com.lloyd.weather.BASE_URL
 import com.lloyd.weather.BuildConfig
 import com.lloyd.weather.data.remote.moshiFactories.MyStandardJsonAdapters
-import com.task.data.remote.moshiFactories.MyKotlinJsonAdapterFactory
+import com.lloyd.weather.data.remote.moshiFactories.MyKotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

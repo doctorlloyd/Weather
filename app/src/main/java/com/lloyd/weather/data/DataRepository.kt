@@ -1,7 +1,6 @@
 package com.lloyd.weather.data
 
 import com.lloyd.weather.data.models.LocationWeather
-import com.lloyd.weather.data.models.WeatherList
 import com.lloyd.weather.data.remote.RemoteData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
