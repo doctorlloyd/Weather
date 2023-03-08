@@ -24,7 +24,7 @@ open class DetailsViewModel @Inject constructor(private val dataRepository: Data
     val weatherData: LiveData<LocationWeather> get() = weatherPrivate
 
     /**
-     * UI actions as event, user action is single one time event, Shouldn't be multiple time consumption
+     * UI actions as event, user action is single one time event, Shouldn't be multiple times consumption
      */
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     private val openWeatherDetailsPrivate = MutableLiveData<SingleEvent<LocationWeather>>()
