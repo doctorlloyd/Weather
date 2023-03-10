@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lloyd.weather.data.DataRepositorySource
 import com.lloyd.weather.data.Resource
-import com.lloyd.weather.data.models.LocationWeather
+import com.lloyd.weather.data.models.Weather
 import com.lloyd.weather.ui.base.BaseViewModel
 import com.lloyd.weather.utils.SingleEvent
 import com.lloyd.weather.utils.wrapEspressoIdlingResource
@@ -20,23 +20,23 @@ import javax.inject.Inject
 open class DetailsViewModel @Inject constructor(private val dataRepository: DataRepositorySource) : BaseViewModel() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val weatherPrivate = MutableLiveData<LocationWeather>()
-    val weatherData: LiveData<LocationWeather> get() = weatherPrivate
+    val weatherPrivate = MutableLiveData<Weather>()
+    val weatherData: LiveData<Weather> get() = weatherPrivate
 
     /**
      * UI actions as event, user action is single one time event, Shouldn't be multiple times consumption
      */
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    private val openWeatherDetailsPrivate = MutableLiveData<SingleEvent<LocationWeather>>()
-    val openWeatherDetails: LiveData<SingleEvent<LocationWeather>> get() = openWeatherDetailsPrivate
+    private val openWeatherDetailsPrivate = MutableLiveData<SingleEvent<Weather>>()
+    val openWeatherDetails: LiveData<SingleEvent<Weather>> get() = openWeatherDetailsPrivate
 
-    fun initIntentData(weather: LocationWeather) {
+    fun initIntentData(weather: Weather) {
         weatherPrivate.value = weather
     }
 
 //    fun getWeather() {
 //        viewModelScope.launch {
-//            weatherPrivate.value = Resource.Loading()
+//            weatherPrivate.value =
 //            wrapEspressoIdlingResource {
 //                dataRepository.requestWeather().collect {
 //                    weatherPrivate.value = it

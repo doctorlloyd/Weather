@@ -14,4 +14,4 @@ data class Weather(
     @Json(name = "main") val main: String = "",
     @Json(name = "description") val description: String = "",
     @Json(name = "icon") val icon: String = ""
-) : Serializable, Parcelable
+) : Parcelable

@@ -12,6 +12,7 @@ import com.lloyd.weather.R
 import com.lloyd.weather.WEATHER_ITEM_KEY
 import com.lloyd.weather.data.Resource
 import com.lloyd.weather.data.models.LocationWeather
+import com.lloyd.weather.data.models.Weather
 import com.lloyd.weather.databinding.HomeActivityBinding
 import com.lloyd.weather.ui.base.BaseActivity
 import com.lloyd.weather.ui.details.DetailsActivity
@@ -46,16 +47,16 @@ class WeatherListActivity : BaseActivity() {
         /*
         * Logging data received from location weather API
         * */
-//        if ((weather.)) {
-//            weatherAdapter = WeatherAdapter(weatherListViewModel, weather)
-//            binding.rvWeatherList.adapter = weatherAdapter
-//            showDataView(true)
-//        } else {
-//            showDataView(false)
-//        }
+        if ((weather.weather.isNullOrEmpty())) {
+            weatherAdapter = WeatherAdapter(weatherListViewModel, weather.weather)
+            binding.rvWeatherList.adapter = weatherAdapter
+            showDataView(true)
+        } else {
+            showDataView(false)
+        }
     }
 
-    private fun navigateToDetailsScreen(navigateEvent: SingleEvent<LocationWeather>) {
+    private fun navigateToDetailsScreen(navigateEvent: SingleEvent<Weather>) {
         navigateEvent.getContentIfNotHandled()?.let {
             val nextScreenIntent = Intent(this, DetailsActivity::class.java).apply {
                 putExtra(WEATHER_ITEM_KEY, it)

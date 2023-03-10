@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import com.lloyd.weather.R
 import com.lloyd.weather.WEATHER_ITEM_KEY
 import com.lloyd.weather.data.models.LocationWeather
+import com.lloyd.weather.data.models.Weather
 import com.lloyd.weather.databinding.DetailsLayoutBinding
 import com.lloyd.weather.ui.base.BaseActivity
 import com.lloyd.weather.utils.observe
@@ -29,17 +30,17 @@ class DetailsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.initIntentData(intent.getParcelableExtra(WEATHER_ITEM_KEY) ?: LocationWeather())
+        viewModel.initIntentData(intent.getParcelableExtra(WEATHER_ITEM_KEY) ?: Weather())
     }
 
     override fun observeViewModel() {
         observe(viewModel.weatherData, ::initializeView)
     }
 
-    private fun initializeView(LocationWeather: LocationWeather) {
-        binding.tvName.text = LocationWeather.name
-        binding.tvHeadline.text = LocationWeather.main.temp.toString()
-        binding.tvDescription.text = LocationWeather.base
+    private fun initializeView(LocationWeather: Weather) {
+        binding.tvName.text = LocationWeather.main
+        binding.tvHeadline.text = LocationWeather.description
+        binding.tvDescription.text = LocationWeather.icon
 //        Picasso.get().load(LocationWeather).placeholder(R.drawable.ic_healthy_food_small)
 //                .into(binding.ivweatherImage)
 
